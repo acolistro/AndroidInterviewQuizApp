@@ -11,14 +11,38 @@
     <ImageView
         android:src="@drawable/ic_launcher_foreground"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/default_android_graphic" />
 
     <TextView
         android:id="@+id/answer_text_view"
         android:text="@string/answer_text"
         android:padding="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/true_button"
+            android:text="@string/true_text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+        <Button
+            android:id="@+id/false_button"
+            android:text="@string/false_text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+
+        </LinearLayout>
 
 
 </LinearLayout>

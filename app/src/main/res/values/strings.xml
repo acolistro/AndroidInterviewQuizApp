@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AndroidQuizApp</string>
-    <string name="answer_text">My test text</string>
+    <string name="answer_text">QUESTION TEXT</string>
+    <string name="default_android_graphic">Default android graphic</string>
+    <string name="true_text">TRUE</string>
+    <string name="false_text">FALSE</string>
 </resources>
