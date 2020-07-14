@@ -3,8 +3,10 @@ package com.example.androidquizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,7 +14,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button falseButton;
     private Button trueButton;
+    private ImageButton nextButton;
     private TextView questionTextView;
+
+    private int currentQuestionIndex = 0;
 
     private Question[] questionBank = new Question[] {
             new Question(R.string.question_1, false),
@@ -34,11 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         falseButton = findViewById(R.id.false_button);
         trueButton = findViewById(R.id.true_button);
+        nextButton = findViewById(R.id.next_button);
+
         questionTextView = findViewById(R.id.answer_text_view);
 
         falseButton.setOnClickListener(this); //register buttons to listen to click events
-
         trueButton.setOnClickListener(this);
+        nextButton.setOnClickListener(this);
     }
 
 
@@ -52,6 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.true_button:
                 Toast.makeText(MainActivity.this, "True",
                         Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.next_button:
+                //go to next question
+                currentQuestionIndex++;
+                questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
+                Log.d("CURRENT", "onClick: " + currentQuestionIndex);
+                break;
         }
     }
 }
