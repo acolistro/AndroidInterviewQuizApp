@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        falseButton = findViewById(R.id.false_button);
+        falseButton = findViewById(R.id.false_button); //locate the element to target
         trueButton = findViewById(R.id.true_button);
         nextButton = findViewById(R.id.next_button);
 
