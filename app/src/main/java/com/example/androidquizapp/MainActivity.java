@@ -14,13 +14,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button trueButton;
     private TextView questionTextView;
 
+    private Question[] questionBank = new Question[] {
+            new Question(R.string.question_1, false),
+            new Question(R.string.question_2, true),
+            new Question(R.string.question_3, false),
+            new Question(R.string.question_4, false),
+            new Question(R.string.question_5, false),
+            new Question(R.string.question_6, true),
+            new Question(R.string.question_7, true),
+            new Question(R.string.question_8, false),
+            new Question(R.string.answer_text, false)
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Question question = new Question(R.string.answer_text, true);
 
         falseButton = findViewById(R.id.false_button);
         trueButton = findViewById(R.id.true_button);
