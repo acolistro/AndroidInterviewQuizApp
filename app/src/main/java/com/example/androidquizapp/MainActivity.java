@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.next_button:
                 //go to next question
-                currentQuestionIndex++;
+                currentQuestionIndex = (currentQuestionIndex +1) % questionBank.length; //avoid out of bounds exception
                 questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
                 Log.d("CURRENT", "onClick: " + currentQuestionIndex);
                 break;
