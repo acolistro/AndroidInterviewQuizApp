@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidQuizApp</string>
+    <string name="answer_text">My test text</string>
 </resources>
