@@ -53,19 +53,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.false_button:
-                Toast.makeText(MainActivity.this, "False",
-                        Toast.LENGTH_SHORT).show();
+                checkAnswer(false);
                 break;
             case R.id.true_button:
-                Toast.makeText(MainActivity.this, "True",
-                        Toast.LENGTH_SHORT).show();
+                checkAnswer(true);
                 break;
             case R.id.next_button:
                 //go to next question
                 currentQuestionIndex = (currentQuestionIndex +1) % questionBank.length; //avoid out of bounds exception
-                questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
-                Log.d("CURRENT", "onClick: " + currentQuestionIndex);
-                break;
+                updateQuestion();
+
+//                questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
+//                Log.d("CURRENT", "onClick: " + currentQuestionIndex);
+//                break;
         }
+    }
+
+    private void updateQuestion() {
+        Log.d("Current", "onClick :" + currentQuestionIndex);
+        questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
+
+    }
+
+    private void checkAnswer(boolean userChoseCorrect) {
+        boolean answerIsTrue = questionBank[currentQuestionIndex].isAnswerTrue();
+        int toastMessageId;
+
+        if (userChoseCorrect == answerIsTrue) {
+            toastMessageId = R.string.correct_answer;
+        } else {
+            toastMessageId = R.string.incorrect_answer;
+        }
+
+        Toast.makeText(MainActivity.this, toastMessageId,
+                Toast.LENGTH_SHORT)
+                .show();
     }
 }
